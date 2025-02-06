@@ -122,18 +122,19 @@ message ResourceProfiles {
   // pod name).
   // In the context of metrics / traces / logs, the entity producing the data
   // is often also the entity being observed.
-  // For profiles produced by the dd-otel-host-profiler, the telemetry is produced
-  // by a full host profiler, and contains data for multiple instrumented processes
+  // For profiles produced by the opentelemetry-ebpf-profiler, the telemetry is produced
+  // by a host profiler, and contains data for multiple instrumented processes
   // (some of them in containers / pods / ...)
   // Ideally, we'd want attributes related each container / pod, to be added
-  // by the collector processors. Right now the resource however points to the
+  // by the collector processor. Right now the resource however points to the
   // full host so it's impossible to add the data in this field.
   // 
   // Approach compatible with the current model:
   // Put the attributes in the sample's attributes.
   // 
   // Cons:
-  // - Requires the processor to parse the data to the frame level
+  // - Requires the processor to parse the data to the frame level (different
+  // from other signals).
   // - Repetition of the attributes in each sample
   // 
   // Alternative option 1:
