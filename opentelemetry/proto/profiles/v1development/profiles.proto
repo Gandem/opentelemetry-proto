@@ -133,7 +133,7 @@ message ResourceProfiles {
   // Put the attributes in the sample's attributes.
   // 
   // Cons:
-  // - Requires the processor to parse the data to the frame level (different
+  // - Requires the processor to parse the data to the sample level (different
   // from other signals).
   // - Repetition of the attributes in each sample
   // 
