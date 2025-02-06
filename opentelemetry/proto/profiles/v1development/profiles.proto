@@ -138,7 +138,7 @@ message ResourceProfiles {
   // - Repetition of the attributes in each sample
   // 
   // Alternative option 1:
-  // Have the dd-otel-host-profiler emit one resource profile for each process 
+  // Have the opentelemetry-ebpf-profiler emit one resource profile for each process 
   // 
   // Pros:
   // - Maps well with the current opentelemetry model
@@ -147,7 +147,7 @@ message ResourceProfiles {
   //
   // Alternative option 2:
   // Have a repeated `resource` field.
-  // The dd-otel-host-profiler would create a ResourceProfiles.resource which
+  // The opentelemetry-ebpf-profiler would create a ResourceProfiles.resource which
   // contains only the pid (or cgroup) as an attribute.
   // Then in each sample, the profiler would add a resource_id attribute, to point
   // each sample to a single reference in the list of resource profiles.
