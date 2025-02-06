@@ -148,9 +148,12 @@ message ResourceProfiles {
   // Alternative option 2:
   // Have a repeated `resource` field.
   // The dd-otel-host-profiler would create a ResourceProfiles.resource which
-  // contains only the cgroup name as an attribute.
+  // contains only the pid (or cgroup) as an attribute.
   // Then in each sample, the profiler would add a resource_id attribute, to point
   // each sample to a single reference in the list of resource profiles.
+  // Resource 0 is the host, then each following resource is a separate process
+  // (or separate container / pod ...)
+  // 
   // Pros:
   // - No need to do other changes on the spec
   // Cons:
